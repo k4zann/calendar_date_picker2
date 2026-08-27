@@ -84,8 +84,8 @@ class _CalendarViewState extends State<_CalendarView> {
   @override
   void didUpdateWidget(_CalendarView oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (widget.initialMonth != oldWidget.initialMonth &&
-        widget.initialMonth != _currentMonth) {
+    if (!DateUtils.isSameMonth(widget.initialMonth, oldWidget.initialMonth) &&
+        !DateUtils.isSameMonth(widget.initialMonth, _currentMonth)) {
       // We can't interrupt this widget build with a scroll, so do it next frame
       // Add workaround to fix Flutter 3.0.0 compiler issue
       // https://github.com/flutter/flutter/issues/103561#issuecomment-1125512962
